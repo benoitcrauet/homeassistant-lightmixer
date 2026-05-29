@@ -49,3 +49,4 @@ home-assistant.log
 *.log
 .env
 .env.*
+.claude/
