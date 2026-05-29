@@ -1,0 +1,55 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Light Mixer",
+        "data": {
+          "name": "Nom",
+          "destination": "Lumière de destination"
+        }
+      }
+    }
+  },
+  "entity": {
+    "select": {
+      "mode": {
+        "name": "Mode",
+        "state": {
+          "mix":      "Mix",
+          "last_set": "Dernier défini",
+          "priority": "Priorité",
+          "layer1":   "Layer 1 seul",
+          "layer2":   "Layer 2 seul",
+          "layer3":   "Layer 3 seul",
+          "off":      "Éteint"
+        }
+      },
+      "priority_order": {
+        "name": "Ordre de priorité"
+      },
+      "destination": {
+        "name": "Destination"
+      },
+      "layer_type_layer1": {
+        "name": "Type Layer 1",
+        "state": { "full": "Complet (RGB + Blanc)", "color_temp": "Blanc temp", "dim": "Variateur seul" }
+      },
+      "layer_type_layer2": {
+        "name": "Type Layer 2",
+        "state": { "full": "Complet (RGB + Blanc)", "color_temp": "Blanc temp", "dim": "Variateur seul" }
+      },
+      "layer_type_layer3": {
+        "name": "Type Layer 3",
+        "state": { "full": "Complet (RGB + Blanc)", "color_temp": "Blanc temp", "dim": "Variateur seul" }
+      }
+    },
+    "binary_sensor": {
+      "layer1_tally": { "name": "Tally Layer 1" },
+      "layer2_tally": { "name": "Tally Layer 2" },
+      "layer3_tally": { "name": "Tally Layer 3" }
+    },
+    "sensor": {
+      "destination_status": { "name": "État destination" }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Light Mixer",
+        "data": {
+          "name": "Name",
+          "destination": "Destination light"
+        }
+      }
+    }
+  },
+  "entity": {
+    "select": {
+      "mode": {
+        "name": "Mode",
+        "state": {
+          "mix":      "Mix",
+          "last_set": "Last set",
+          "priority": "Priority",
+          "layer1":   "Layer 1 only",
+          "layer2":   "Layer 2 only",
+          "layer3":   "Layer 3 only",
+          "off":      "Off"
+        }
+      },
+      "priority_order": {
+        "name": "Priority order"
+      },
+      "destination": {
+        "name": "Destination"
+      },
+      "layer_type_layer1": {
+        "name": "Layer 1 type",
+        "state": { "full": "Full (RGB + White)", "color_temp": "White temp", "dim": "Dim only" }
+      },
+      "layer_type_layer2": {
+        "name": "Layer 2 type",
+        "state": { "full": "Full (RGB + White)", "color_temp": "White temp", "dim": "Dim only" }
+      },
+      "layer_type_layer3": {
+        "name": "Layer 3 type",
+        "state": { "full": "Full (RGB + White)", "color_temp": "White temp", "dim": "Dim only" }
+      }
+    },
+    "binary_sensor": {
+      "layer1_tally": { "name": "Layer1 tally" },
+      "layer2_tally": { "name": "Layer2 tally" },
+      "layer3_tally": { "name": "Layer3 tally" }
+    },
+    "sensor": {
+      "destination_status": { "name": "Destination status" }
+    }
+  }
+}
