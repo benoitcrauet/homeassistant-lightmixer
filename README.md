@@ -29,6 +29,12 @@ Forces the destination entity to turn off.
 
 Light Mixer includes a Lovelace card for monitoring the state of your light routers. Optional controls can be enabled to configure the integration directly from the dashboard.
 
+The card file (`light-mixer-card.js`) is automatically copied to `/config/www/` when the integration loads. You only need to register it once as a Lovelace resource:
+
+**Settings → Dashboards → ⋮ → Resources → Add** → `/local/light-mixer-card.js` (type: JavaScript module)
+
+Then add a card with type `custom:light-mixer-card` and set the `device_id` to your Light Mixer instance (found in the device URL).
+
 ## Usage tips
 
 - Do not assign a room to the device itself — assign rooms to the 3 virtual entities instead, to avoid conflicts with `light.turn_off` on an entire area.
@@ -64,6 +70,12 @@ Force l'extinction de l'entité de destination.
 ## Carte Lovelace
 
 Light Mixer inclut une carte Lovelace de visualisation pour monitorer l'état des routeurs. Des contrôles optionnels peuvent être activés pour configurer l'intégration directement depuis le dashboard.
+
+Le fichier de la carte (`light-mixer-card.js`) est automatiquement copié dans `/config/www/` au chargement de l'intégration. Il suffit de l'enregistrer une seule fois comme ressource Lovelace :
+
+**Paramètres → Tableaux de bord → ⋮ → Ressources → Ajouter** → `/local/light-mixer-card.js` (type : module JavaScript)
+
+Puis ajouter une carte de type `custom:light-mixer-card` avec le `device_id` de votre instance Light Mixer (visible dans l'URL de l'appareil).
 
 ## Conseils d'usage
 
