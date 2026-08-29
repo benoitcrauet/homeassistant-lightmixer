@@ -232,11 +232,12 @@ class LightMixerCoordinator:
                 result = self._compute_mix()
 
                 if result is None:
-                    await self.hass.services.async_call(
-                        "light", "turn_off", {"entity_id": self.destination}
-                    )
+                    data: dict = {"entity_id": self.destination}
+                    if current_transition is not None and current_transition > 0:
+                        data["transition"] = current_transition
+                    await self.hass.services.async_call("light", "turn_off", data)
                 else:
-                    data: dict = {"entity_id": self.destination, "brightness": result["brightness"]}
+                    data = {"entity_id": self.destination, "brightness": result["brightness"]}
                     if "color_temp_kelvin" in result:
                         data["color_temp_kelvin"] = result["color_temp_kelvin"]
                     else:

@@ -7,6 +7,7 @@ from homeassistant.components.light import (
     ATTR_TRANSITION,
     ColorMode,
     LightEntity,
+    LightEntityFeature,
 )
 from .const import LAYER_TYPE_COLOR_TEMP, LAYER_TYPE_DIM
 from homeassistant.config_entries import ConfigEntry
@@ -39,6 +40,9 @@ class LightMixerSource(LightEntity, RestoreEntity):
     _attr_should_poll = False
     _attr_min_color_temp_kelvin = 2000
     _attr_max_color_temp_kelvin = 6500
+    # Declared so HA forwards an explicit `transition` kwarg into turn_on/turn_off
+    # instead of stripping it; the coordinator relays it to the destination light.
+    _attr_supported_features = LightEntityFeature.TRANSITION
 
     def __init__(self, coordinator: LightMixerCoordinator, side: str) -> None:
         self._coordinator = coordinator
