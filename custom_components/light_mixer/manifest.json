@@ -1,7 +1,7 @@
 {
   "domain": "light_mixer",
   "name": "Light Mixer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "config_flow": true,
   "documentation": "",
   "dependencies": [],

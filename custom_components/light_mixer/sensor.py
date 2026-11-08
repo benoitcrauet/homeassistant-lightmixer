@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from homeassistant.components.sensor import SensorEntity
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 from homeassistant.helpers.event import async_track_state_change_event
@@ -79,6 +79,7 @@ class LightMixerDestinationSensor(SensorEntity):
         self._coordinator.unregister_listener(self._on_coordinator_update)
         self._unsubscribe_destination()
 
+    @callback
     def _on_coordinator_update(self) -> None:
         dest = self._coordinator.destination
         # Re-subscribe if the destination entity changed
@@ -86,6 +87,7 @@ class LightMixerDestinationSensor(SensorEntity):
             self._subscribe_destination(dest)
         self.async_write_ha_state()
 
+    @callback
     def _on_destination_state_change(self, event) -> None:
         self.async_write_ha_state()
 
